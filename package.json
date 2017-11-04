@@ -1,0 +1,30 @@
+{
+  "name": "@dedrickenc/json-manip",
+  "version": "1.0.0",
+  "description": "Module to manupilate a json objet",
+  "main": "json-manip.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DedrickEnc/json-manip.git"
+  },
+  "keywords": [
+    "json",
+    "manipulation"
+  ],
+  "author": "Dedrick Kitamuka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DedrickEnc/json-manip/issues"
+  },
+  "homepage": "https://github.com/DedrickEnc/json-manip#readme",
+  "directories": {
+    "example": "example"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
