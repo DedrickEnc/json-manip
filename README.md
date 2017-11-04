@@ -8,41 +8,32 @@ This module manipulate a json object in many differents ways such as adding, rem
 
 ## Usage    
 
-    ```
-    const JSONManipulator = require('../json-manip').JSONManipulator;
-    const jsonManip = new JSONManipulator();
+    ```    
+      const JSONManipulator = require('../json-manip').JSONManipulator;
+      const jsonManip = new JSONManipulator();
 
-    const obj = {
-            name: 'JSON Manipulator',
-            preferences: {
-            },
-            food: {
-                legume: 'Feuille'
-            },
-            references: {
-                workMates: {
-                    "1": "Dupont",
-                    "2": "Du bois"
-                }
-            }
-        };        
-        const list = jsonManip.getAllKeyString(obj);
-    ```
+      const obj = {
+              name: 'JSON Manipulator',
+              preferences: {
+              },
+              food: {
+                  legume: 'Feuille'
+              },
+              references: {
+                  workMates: {
+                      "1": "Dupont",
+                      "2": "Du bois"
+                  }
+              }
+          };        
+          const list = jsonManip.getAllKeyString(obj);          
+     ```
 
     Should return : 
-
-    ```
-    [ 
-        'food',
-        'food.legume',
-        'name',
-        'preferences',
-        'references',
-        'references.workMates',
-        'references.workMates.1',
-        'references.workMates.2'
-    ]
-    ```
+    
+    ``` 
+      ['food', 'food.legume', 'name', 'preferences', 'references', 'references.workMates', 'references.workMates.1', 'references.workMates.2']
+      ```
 
 ## Tests
 
