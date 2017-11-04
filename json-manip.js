@@ -33,24 +33,46 @@ class JSONManipulator {
         return res;
     }
 
-    // removeLastKey(keyString, baseObejct) {
-    //     let keys;
-    //     keys = keyString.split('.');
+    /**
+     * @method removeLastKey
+     * 
+     * @description
+     * 
+     * Takes an object as first parameter, a key string as a second parameter
+     *  and return back an object without the the provided last key
+     * 
+     * @param {Object} obj The object form which the last key wil be removed 
+     * @param {string} path The key string containing the last key to remove 
+     * 
+     * @returns {Object} obj an object without the last key
+     */
+    removeLastKey(obj, keyString) {
 
-    //     return keys.reduce((current, next) => {
-    //         if (baseObejct[next]) {
-    //             return current[next] = baseObejct[next];
-    //         } else {
-    //             if (typeof current[next] === 'string') {
-    //                 delete current[next];
-    //                 return current;
-    //             } else {
-    //                 return current;
-    //             }
-    //         }
+        if (!this.isPresent(obj, keyString)) {
+            return obj;
+        }
 
-    //     }, {});
-    // }
+        let keys = keyString.split('.');
+
+        // if not a single key, delete directely
+        if (keys.length === 1) {
+            delete obj[keys.pop()];
+            return obj;
+        }
+
+        const last = keys[keys.length - 1];
+        const processedList = [];
+
+        keys.reduce((current, next) => {
+            if (typeof current[next] === 'object' && next !== last) {
+                return current[next];
+            } else if (next === last) {
+                delete current[next];
+            }
+        }, obj);
+
+        return obj;
+    }
 
     /**
      * @method isPresent

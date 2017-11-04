@@ -4,6 +4,8 @@ This module manipulate a json object in many differents ways such as adding, rem
 Here is in detail the list of task you can perform with **json-manip**
 
 * Listing all key of the object (`getAllKeyString`)
+* Check if a keystring exist in the object (`isPresent`)
+* Removing the last key of a key string (`removeLastKey`);
 
 ## Installation
 
@@ -50,6 +52,20 @@ Here is in detail the list of task you can perform with **json-manip**
         const falseResult = jsonManipulator.isPresent(obj, 'name.food.meal'); // should return  false
         const trueResult = jsonManipulator.isPresent(obj, 'references.workMates.2'); // should return true
       ```
+
+      ```
+        JSONManipulator.removeLastKey(obj, 'references.workMates.1');
+
+        should return : 
+
+        {
+          name: 'JSON Manipulator',
+          preferences: {},
+          food: { legume: 'Feuille' },
+          references: { workMates: { "2": "Du bois" }}
+        };
+      ```
+
 
 ## Tests
 

@@ -17,6 +17,20 @@ const obj = {
     }
 };
 
+const resObj = {
+    name: 'JSON Manipulator',
+    preferences: {
+    },
+    food: {
+        legume: 'Feuille'
+    },
+    references: {
+        workMates: {
+            "2": "Du bois"
+        }
+    }
+};
+
 describe('JSON Manipulation test', function () {
     it('should return an empty list', function () {
         const list = jsonManip.getAllKeyString({});
@@ -36,5 +50,15 @@ describe('JSON Manipulation test', function () {
     it('should return true for the key string references.workMates.2', function () {
         const res = jsonManip.isPresent(obj, 'references.workMates.2');
         expect(res).to.equal(true);
+    });
+
+    it('should return the original objet if the key does not exist', function () {
+        const res = jsonManip.removeLastKey(obj, 'references.workMates.3');
+        expect(res).to.equal(obj);
+    });
+
+    it('should suppress the last key successfully', function () {
+        const res = jsonManip.removeLastKey(obj, 'references.workMates.1');
+        expect(res).to.not.be.equal(resObj);
     });
 });
