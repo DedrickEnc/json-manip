@@ -8,7 +8,7 @@ describe('JSON Manipulation test', function () {
         expect(list.length).to.equal(0);
     });
 
-    it('should return a list of ', function () {
+    it('should return a list of 8 keys', function () {
         const obj = {
             name: 'JSON Manipulator',
             preferences: {
