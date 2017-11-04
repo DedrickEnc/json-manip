@@ -14,7 +14,7 @@ Here is in detail the list of task you can perform with **json-manip**
 ## Usage    
 
     ```    
-      const JSONManipulator = require('../json-manip').JSONManipulator;
+      const JSONManipulator = require('json-manip').JSONManipulator;
       const jsonManip = new JSONManipulator();
 
       const obj = {
