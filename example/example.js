@@ -1,8 +1,7 @@
 const JSONManipulator = require('../json-manip').JSONManipulator;
 
 const jsonManipulator = new JSONManipulator();
-
-const keyStrings = jsonManipulator.getAllKeyString({
+const obj = {
     name: 'JSON Manipulator',
     preferences: {
     },
@@ -15,16 +14,10 @@ const keyStrings = jsonManipulator.getAllKeyString({
             "2": "Du bois"
         }
     }
-});
+}
 
-console.log(keyStrings);
+const keyStrings = jsonManipulator.getAllKeyString(obj);
+const falseResult = jsonManipulator.isPresent(obj, 'name.food.meal'); // false
+const trueResult1 = jsonManipulator.isPresent(obj, 'references.workMates.2'); //true
+const trueResult2 = jsonManipulator.isPresent(obj, 'name'); //true
 
-//should print : 
-// [ 'food',
-//   'food.legume',
-//   'name',
-//   'preferences',
-//   'references',
-//   'references.workMates',
-//   'references.workMates.1',
-//   'references.workMates.2' ]
