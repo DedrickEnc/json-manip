@@ -1,6 +1,7 @@
 # json-manip
 
 This module manipulate a json object in many differents ways such as adding, removing, and read a property
+Here is in detail the l
 
 ## Installation
 
@@ -32,12 +33,20 @@ This module manipulate a json object in many differents ways such as adding, rem
     Should return : 
     
     ``` 
-      ['food', 'food.legume', 'name', 'preferences', 'references', 'references.workMates', 'references.workMates.1', 'references.workMates.2']
+      [
+        'food',
+        'food.legume',
+        'name',
+        'preferences',
+        'references',
+        'references.workMates',
+        'references.workMates.1',
+        'references.workMates.2']
       ```
 
 ## Tests
 
-  `npm test`
+  `npm test` or `npm run test`
 
 ## Contributing
 
