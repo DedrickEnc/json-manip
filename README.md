@@ -1,7 +1,9 @@
 # json-manip
 
 This module manipulate a json object in many differents ways such as adding, removing, and read a property
-Here is in detail the l
+Here is in detail the list of task you can perform with **json-manip**
+
+* Listing all key of the object (`getAllKeyString`)
 
 ## Installation
 
