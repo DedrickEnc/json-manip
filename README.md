@@ -46,6 +46,11 @@ Here is in detail the list of task you can perform with **json-manip**
         'references.workMates.2']
       ```
 
+      ```
+        const falseResult = jsonManipulator.isPresent(obj, 'name.food.meal'); // should return  false
+        const trueResult = jsonManipulator.isPresent(obj, 'references.workMates.2'); // should return true
+      ```
+
 ## Tests
 
   `npm test` or `npm run test`
