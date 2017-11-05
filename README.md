@@ -13,7 +13,7 @@ Here is in detail the list of task you can perform with **json-manip**
 
 ## Usage    
 
-    ```    
+    `  
       const JSONManipulator = require('json-manip').JSONManipulator;
       const jsonManip = new JSONManipulator();
 
@@ -32,11 +32,9 @@ Here is in detail the list of task you can perform with **json-manip**
               }
           };        
           const list = jsonManip.getAllKeyString(obj);          
-     ```
 
-    Should return : 
+    // Should return : 
     
-    ``` 
       [
         'food',
         'food.legume',
@@ -45,18 +43,14 @@ Here is in detail the list of task you can perform with **json-manip**
         'references',
         'references.workMates',
         'references.workMates.1',
-        'references.workMates.2']
-      ```
-
-      ```
+        'references.workMates.2']  
+   
         const falseResult = jsonManipulator.isPresent(obj, 'name.food.meal'); // should return  false
         const trueResult = jsonManipulator.isPresent(obj, 'references.workMates.2'); // should return true
-      ```
-
-      ```
+    
         JSONManipulator.removeLastKey(obj, 'references.workMates.1');
 
-        should return : 
+        // Should return : 
 
         {
           name: 'JSON Manipulator',
@@ -64,7 +58,7 @@ Here is in detail the list of task you can perform with **json-manip**
           food: { legume: 'Feuille' },
           references: { workMates: { "2": "Du bois" }}
         };
-      ```
+      `
 
 
 ## Tests
