@@ -63,11 +63,17 @@ class JSONManipulator {
         const last = keys[keys.length - 1];
         const processedList = [];
 
+        // This counter is important to make sure that we reached the last key
+        let i = 0;
         keys.reduce((current, next) => {
+            i++;
+
             if (typeof current[next] === 'object' && next !== last) {
                 return current[next];
-            } else if (next === last) {
+            } else if (next === last && i === keys.length) {
                 delete current[next];
+            } else {
+                return current[next];
             }
         }, obj);
 
