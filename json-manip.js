@@ -109,6 +109,35 @@ class JSONManipulator {
 
         return found;
     }
+
+    /**
+     * @method getValue
+     * 
+     * @description
+     * 
+     * Takes an object as first parameter, a key string as a second parameter
+     *  and return back a value of this object property represented by the key string
+     * it return undefined if the key does not match 
+     * 
+     * @param {Object} obj The object to scan 
+     * @param {string} keyString The key string to search into the object 
+     * 
+     * @returns {Object} currentValue the value of the key string in the object, could be any time of data
+     */
+
+    getValue(obj, keyString) {
+        let keys = keyString.split('.');
+        let currentValue;
+
+        if (this.isPresent(obj, keyString)) {
+            currentValue = obj;
+            keys.forEach((key) => {
+                currentValue = currentValue[key];
+            });
+        }
+
+        return currentValue;
+    }
 }
 
 exports.JSONManipulator = JSONManipulator;

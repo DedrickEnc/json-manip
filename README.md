@@ -6,6 +6,7 @@ Here is in detail the list of task you can perform with **json-manip**
 * Listing all key of the object (`getAllKeyString`)
 * Check if a keystring exist in the object (`isPresent`)
 * Removing the last key of a key string (`removeLastKey`);
+* RemovinGetting a key string value in the object (`getValue`);
 
 ## Installation
 
@@ -58,6 +59,8 @@ Here is in detail the list of task you can perform with **json-manip**
           food: { legume: 'Feuille' },
           references: { workMates: { "2": "Du bois" }}
         };
+
+        jsonManipulator.getValue(obj, 'references.workMates.2'); // Du bois
       `
 
 
