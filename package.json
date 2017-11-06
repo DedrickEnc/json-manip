@@ -1,6 +1,6 @@
 {
   "name": "json-manip",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Module to manupilate a json objet",
   "main": "json-manip.js",
   "scripts": {
