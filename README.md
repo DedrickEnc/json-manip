@@ -12,9 +12,10 @@ Here is in detail the list of task you can perform with **json-manip**
 
   `npm install json-manip`
 
-## Usage    
+## Usage
 
-    `  
+### How to initialize ?
+    `
       const JSONManipulator = require('json-manip').JSONManipulator;
       const jsonManip = new JSONManipulator();
 
@@ -32,26 +33,41 @@ Here is in detail the list of task you can perform with **json-manip**
                   }
               }
           };        
-          const list = jsonManip.getAllKeyString(obj);          
+    `
 
-    // Should return : 
-    
-      [
-        'food',
-        'food.legume',
-        'name',
-        'preferences',
-        'references',
-        'references.workMates',
-        'references.workMates.1',
-        'references.workMates.2']  
-   
-        const falseResult = jsonManipulator.isPresent(obj, 'name.food.meal'); // should return  false
-        const trueResult = jsonManipulator.isPresent(obj, 'references.workMates.2'); // should return true
-    
-        JSONManipulator.removeLastKey(obj, 'references.workMates.1');
+    **Every Example bellow will use the object above**
 
-        // Should return : 
+### getAllKeyString    
+
+    ` 
+      const list = jsonManip.getAllKeyString(obj);          
+
+      // Should return : 
+    
+        [
+          'food',
+          'food.legume',
+          'name',
+          'preferences',
+          'references',
+          'references.workMates',
+          'references.workMates.1',
+          'references.workMates.2']
+    `
+
+### isPresent
+
+    `
+      const falseResult = jsonManipulator.isPresent(obj, 'name.food.meal'); // should return  false
+      const trueResult = jsonManipulator.isPresent(obj, 'references.workMates.2'); // should return true
+    `
+
+### removeLastKey
+
+    `
+      JSONManipulator.removeLastKey(obj, 'references.workMates.1');
+
+      // Should return : 
 
         {
           name: 'JSON Manipulator',
@@ -59,10 +75,23 @@ Here is in detail the list of task you can perform with **json-manip**
           food: { legume: 'Feuille' },
           references: { workMates: { "2": "Du bois" }}
         };
+    `
 
-        jsonManipulator.getValue(obj, 'references.workMates.2'); // Du bois
-      `
+### getValue
 
+    `
+      jsonManipulator.getValue(obj, 'references.workMates.2'); // Du bois
+    `
+
+### setValue
+
+    `
+      const res = jsonManipulator.setValue(obj, 'ID', '50'); // will add a property ```ID``` with the value ```50``` in the same level than ```name``` and return the edited object
+      const res = jsonManipulator.setValue(obj, 'name', 'Manip'); // will edit the ```name``` property from ```JSON Manipulator``` to ```Manip```
+      const res = jsonManipulator.setValue(obj, 'preferences.UN.DEUX.TROIS', 3); // will add a property ```TROIS``` into the sub object ```preferences``` every intermediate object will be created if they do not exist
+      const res1 = jsonManipulator.setValue(obj, 'food.meal', 'chocolate'); // will add a property ```meal``` into sub object ```food```
+      const res2 = jsonManipulator.setValue(obj, 'food.meal.name', 'something'); // will return te initial object if trying to set a confusing keystring (i.e trying to add a property ```name``` on ```meal``` which is a ```string```)
+    `  
 
 ## Tests
 

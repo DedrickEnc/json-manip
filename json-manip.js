@@ -61,7 +61,6 @@ class JSONManipulator {
         }
 
         const last = keys[keys.length - 1];
-        const processedList = [];
 
         // This counter is important to make sure that we reached the last key
         let i = 0;
@@ -137,6 +136,53 @@ class JSONManipulator {
         }
 
         return currentValue;
+    }
+
+    /**
+     * @method setValue
+     * 
+     * @description
+     * 
+     * Takes an object as first parameter, a key string as a second parameter and the value as 
+     * the third parameter and return back an object modified
+     * This method adds set a value if the key string does not exist or updates it if the key string 
+     * does exist. 
+     * 
+     * @param {Object} obj The object to scan 
+     * @param {string} keyString The key string to search into the object 
+     * 
+     * @returns {Object} currentValue the value of the key string in the object, could be any time of data
+     */
+    setValue(obj, keyString, value) {
+        let keys = keyString.split('.');
+        const last = keys[keys.length - 1];
+
+        // This counter is important to make sure that we reached the last key
+        let i = 0;
+        keys.reduce((current, next) => {
+            i++;
+
+            if (typeof current === 'object') {
+                if (current[next]) {
+                    if (i === keys.length) {
+                        current[next] = value;
+                    } else {
+                        return current[next];
+                    }
+                } else {
+                    if (i === keys.length) {
+                        current[next] = value;
+                    } else {
+                        current[next] = {};
+                        return current[next];
+                    }
+                }
+            }
+
+        }, obj);
+
+        return obj;
+
     }
 }
 
