@@ -148,10 +148,11 @@ class JSONManipulator {
      * This method adds set a value if the key string does not exist or updates it if the key string 
      * does exist. 
      * 
-     * @param {Object} obj The object to scan 
-     * @param {string} keyString The key string to search into the object 
+     * @param {Object} obj The object on which a value will be set
+     * @param {string} keyString The key string to set on the object 
+     * @param {Object|String} value The object or String value to set
      * 
-     * @returns {Object} currentValue the value of the key string in the object, could be any time of data
+     * @returns {Object} obj the object after the manipulation
      */
     setValue(obj, keyString, value) {
         let keys = keyString.split('.');
