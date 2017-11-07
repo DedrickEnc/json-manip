@@ -71,4 +71,15 @@ describe('JSON Manipulation test',   () => {
         const res = jsonManip.getValue(obj, 'references.workMates.2');
         expect(res).to.equal("Du bois");
     });
+
+    it('should add a property PREM in the sub object references', () => {
+        const res = jsonManip.setValue(obj, 'references.PREM', 'Premier');
+        expect(res.references.PREM).to.equal("Premier");
+    });
+
+    it('should return the initial object if the key string chain is not correct', () => {
+        const res1 = jsonManip.setValue(obj, 'food.meal', 'chocolate');
+        const res2 = jsonManip.setValue(obj, 'food.meal.name', 'something'); // trying to set a name on food.meal which is an object
+        expect(res1).to.equal(res2);
+    });
 });
